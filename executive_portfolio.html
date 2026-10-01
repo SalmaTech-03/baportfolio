@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salma S | Junior Business Analyst Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        deepSpace: '#0B0F19',
+                        darkCard: '#111827',
+                        electricCyan: '#06B6D4',
+                        cyanHover: '#0891B2',
+                        accentViolet: '#6366F1',
+                        emeraldMetric: '#10B981',
+                        borderGlass: 'rgba(255, 255, 255, 0.08)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F19;
+            color: #F3F4F6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.55);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+        }
+        .glow-text-cyan {
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+        .glow-text-violet {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+        .gradient-cyan-violet {
+            background: linear-gradient(135deg, #06B6D4 0%, #6366F1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-cyan-emerald {
+            background: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #06B6D4;
+        }
+        .chapter-line::before {
+            content: '';
+            position: absolute;
+            left: 1.25rem;
+            top: 2.5rem;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #06B6D4, rgba(99, 102, 241, 0.2));
+        }
+    </style>
+</head>
+<body class="custom-scrollbar relative">
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-white/10 px-4 lg:px-8 py-3.5 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-electricCyan to-accentViolet flex items-center justify-center text-white font-black text-lg shadow-lg shadow-electricCyan/20 group-hover:scale-105 transition-transform">
+                    SS
+                </div>
+                <div>
+                    <span class="text-base font-bold tracking-tight text-white block leading-tight">Salma S</span>
+                    <span class="text-xs text-electricCyan font-mono font-medium tracking-wide">Junior Business Analyst</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-6 text-xs font-medium text-slate-300">
+                <a href="#story" class="hover:text-electricCyan transition-colors">01. Journey</a>
+                <a href="#strategy" class="hover:text-electricCyan transition-colors">02. Expertise</a>
+                <a href="#experience" class="hover:text-electricCyan transition-colors">03. Experience</a>
+                <a href="#case-studies" class="hover:text-electricCyan transition-colors">04. 12 Case Studies</a>
+                <a href="#credentials" class="hover:text-electricCyan transition-colors">05. Education & Certs</a>
+            </div>
+
+            <!-- Quick Action CTA -->
+            <div class="hidden md:flex items-center gap-3">
+                <button onclick="openResumeModal()" class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-file-pdf text-electricCyan"></i> Resume
+                </button>
+                <a href="#contact" class="px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-electricCyan to-accentViolet hover:opacity-90 text-white shadow-md shadow-electricCyan/20 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Contact
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobileMenuBtn" class="lg:hidden text-slate-300 hover:text-white p-2">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobileMenu" class="hidden lg:hidden pt-4 pb-3 border-t border-slate-800 mt-3 space-y-3 text-xs font-medium text-slate-300">
+            <a href="#story" class="block px-2 py-1 hover:text-electricCyan">01. My Journey</a>
+            <a href="#strategy" class="block px-2 py-1 hover:text-electricCyan">02. Core Expertise & Strategy</a>
+            <a href="#experience" class="block px-2 py-1 hover:text-electricCyan">03. Experience Storyline</a>
+            <a href="#case-studies" class="block px-2 py-1 hover:text-electricCyan">04. 12 Sector Case Studies</a>
+            <a href="#credentials" class="block px-2 py-1 hover:text-electricCyan">05. Education & Credentials</a>
+            <a href="#contact" class="block px-2 py-1 hover:text-electricCyan">06. Contact</a>
+            <div class="flex gap-2 pt-2 border-t border-slate-800">
+                <button onclick="openResumeModal()" class="w-1/2 text-center py-2 text-xs bg-slate-800 text-slate-200 rounded-lg">View Resume</button>
+                <a href="#contact" class="w-1/2 text-center py-2 text-xs bg-electricCyan text-slate-950 font-bold rounded-lg">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <!-- Ambient Glowing Elements -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-electricCyan/10 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-[450px] h-[450px] bg-accentViolet/10 rounded-full blur-[130px] -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-8 space-y-6">
+                    <!-- Status Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel border border-electricCyan/30 text-electricCyan text-xs font-mono font-semibold uppercase tracking-wider">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emeraldMetric animate-pulse"></span> Available for Full-Time BA Roles & Opportunities
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
+                        Transforming <span class="gradient-cyan-violet">Complex Enterprise Data</span> into Scalable Business Systems.
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light max-w-2xl">
+                        Hello, I am <strong class="text-white font-semibold">Salma S</strong>, a <span class="text-electricCyan font-medium">Junior Business Analyst</span> specializing in bridging the gap between high-level executive vision and precision software engineering through structured requirements (BRD/FRD/SRS), Python/SQL analytics, REST APIs, and modern BI dashboards.
+                    </p>
+
+                    <!-- Quick Metrics Banner -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                        <div class="p-4 rounded-xl glass-card border border-slate-800">
+                            <div class="text-2xl font-black text-electricCyan">12</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Global Case Studies</div>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card border border-slate-800">
+                            <div class="text-2xl font-black text-accentViolet">3</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">BA Internships</div>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card border border-slate-800">
+                            <div class="text-2xl font-black text-emeraldMetric">100%</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Requirements Traceability</div>
+                        </div>
+                        <div class="p-4 rounded-xl glass-card border border-slate-800">
+                            <div class="text-2xl font-black text-amber-400">Honors</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Best Outgoing Student '26</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions & Links -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="#case-studies" class="px-6 py-3 rounded-xl bg-gradient-to-r from-electricCyan to-accentViolet text-white font-bold text-xs uppercase tracking-wider hover:shadow-lg hover:shadow-electricCyan/25 transition-all flex items-center gap-2">
+                            Explore 12 Case Studies <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button onclick="openResumeModal()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-download text-electricCyan"></i> Download Resume
+                        </button>
+                    </div>
+
+                    <!-- Quick Location & Contact Row -->
+                    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400 font-mono pt-2">
+                        <span><i class="fa-solid fa-location-dot text-electricCyan mr-1.5"></i> Salem, Tamil Nadu, India</span>
+                        <span class="text-slate-600">•</span>
+                        <a href="tel:+917397762195" class="hover:text-white transition-colors"><i class="fa-solid fa-phone text-electricCyan mr-1.5"></i> +91 7397762195</a>
+                        <span class="text-slate-600">•</span>
+                        <button onclick="copyToClipboard('syedmannu2003@gmail.com', 'Email copied!')" class="hover:text-white transition-colors text-left">
+                            <i class="fa-solid fa-envelope text-electricCyan mr-1.5"></i> syedmannu2003@gmail.com
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Strategic Summary Profile Box -->
+                <div class="lg:col-span-4">
+                    <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 relative shadow-2xl overflow-hidden">
+                        <div class="absolute -top-12 -right-12 w-32 h-32 bg-electricCyan/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-slate-800 border-2 border-electricCyan flex items-center justify-center text-electricCyan font-black text-2xl shadow-inner">
+                                SS
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Salma S</h3>
+                                <p class="text-xs text-electricCyan font-mono uppercase tracking-wide font-semibold">Junior Business Analyst</p>
+                                <p class="text-xs text-slate-400 mt-0.5">B.Tech AI & Data Science</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3.5 text-xs text-slate-300 border-t border-slate-800 pt-5">
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Academic Honors:</span>
+                                <span class="font-semibold text-amber-400">Best Outgoing Student ('26)</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Advanced Program:</span>
+                                <span class="font-semibold text-slate-200">IIT Guwahati AI/ML</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Core Tools:</span>
+                                <span class="font-semibold text-slate-200">SQL, Python, REST APIs, JIRA</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">BI & Analytics:</span>
+                                <span class="font-semibold text-slate-200">Tableau, Power BI, Excel</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400">Methodologies:</span>
+                                <span class="font-semibold text-slate-200">Agile, Scrum, BPR, BRD/FRD</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800">
+                            <a href="https://linkedin.com/in/salma-s-206671203/" target="_blank" class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs flex items-center justify-center gap-2 border border-slate-700 transition-all">
+                                <i class="fa-brands fa-linkedin text-electricCyan"></i> Connect on LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="story" class="py-20 bg-darkCard/40 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Chapter 01</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Where Data Meets Strategic Vision</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-electricCyan to-accentViolet mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 text-sm mt-4 leading-relaxed">
+                    A narrative of turning raw analytical capabilities into business transformations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-electricCyan/10 text-electricCyan flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">1. Root-Cause Diagnostic Mindset</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-light">
+                        Technology alone rarely solves operational inefficiency. Grounded in my B.Tech in AI & Data Science, my analytical framework starts by asking critical questions, mapping legacy workflows, and analyzing data pipelines to discover root bottlenecks before writing requirements.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-accentViolet/10 text-accentViolet flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-diagram-project"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">2. Requirements Engineering</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-light">
+                        During my BA internships at RheinBrücke, Apex Technologies, and Zephyr, I honed the art of translating stakeholder expectations into structured BRDs, FRDs, SRS documentation, BPMN 2.0 process maps, and clear user stories with 100% traceability.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl relative border border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-emeraldMetric/10 text-emeraldMetric flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-3">3. Quantifiable ROI & Business Impact</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed font-light">
+                        Bridging technical execution with business strategy requires data-backed accountability. Combining complex SQL queries, REST API data audits, and interactive dashboards, I build solutions that deliver measurable reductions in cycle times and costs.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategy" class="py-20 lg:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Chapter 02</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Core Expertise & Expanded Enterprise Strategy</h2>
+                    <p class="text-slate-400 text-sm mt-2 max-w-xl">
+                        Comprehensive methodology pillars and technical stack built for end-to-end business analysis.
+                    </p>
+                </div>
+
+                <!-- Tab Switchers -->
+                <div class="flex flex-wrap gap-2 glass-panel p-1.5 rounded-xl border border-slate-800" id="skillTabs">
+                    <button data-tab="strategy" class="tab-btn active px-4 py-2 rounded-lg text-xs font-bold bg-electricCyan text-slate-950 transition-all">Enterprise Strategy</button>
+                    <button data-tab="technical" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all">Technical & Analytics</button>
+                    <button data-tab="tools" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all">Systems & Tools</button>
+                    <button data-tab="soft" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition-all">Leadership & Soft Skills</button>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT 1: Expanded Enterprise Strategy -->
+            <div id="tab-strategy" class="tab-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-electricCyan flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Business Requirements Engineering</h3>
+                    <p class="text-xs text-electricCyan font-mono font-medium mb-2">BRD / FRD / SRS / Agile Epics & Stories</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Authoring meticulous Business Requirements Documents, Functional Specifications, and System Requirements with explicit acceptance criteria and user stories.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-accentViolet flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-arrows-spin"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Process Re-Engineering (BPR) & VSM</h3>
+                    <p class="text-xs text-accentViolet font-mono font-medium mb-2">AS-IS / TO-BE BPMN 2.0 Maps</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Mapping value streams, isolating process latency, and architecting future-state workflows to eliminate operational redundancies.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-emeraldMetric flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-filter-circle-dollar"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Gap Analysis & Feasibility</h3>
+                    <p class="text-xs text-emeraldMetric font-mono font-medium mb-2">Capability Mapping & Proof-of-Concept</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Evaluating target organizational capabilities against existing IT architectures to assess technical, operational, and financial feasibility.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-amber-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Stakeholder Alignment Workshops</h3>
+                    <p class="text-xs text-amber-400 font-mono font-medium mb-2">RACI Matrix & Executive Discovery</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Facilitating executive discovery sessions, establishing RACI frameworks, and driving consensus across cross-functional engineering and business teams.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-rose-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Financial & Cost-Benefit Modeling</h3>
+                    <p class="text-xs text-rose-400 font-mono font-medium mb-2">ROI Estimation & NPV Analysis</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Quantifying project Total Cost of Ownership (TCO), estimated Net Present Value (NPV), payback periods, and operational efficiency yields.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 text-sky-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">Risk Mitigation & Compliance</h3>
+                    <p class="text-xs text-sky-400 font-mono font-medium mb-2">Auditing & Change Management</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Building risk logs, governance protocols, regulatory compliance checks, and change adoption plans to ensure smooth system transitions.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-electricCyan/40 md:col-span-2 lg:col-span-3">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-lg bg-slate-800 text-electricCyan flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white">UAT Strategy & Traceability Matrix Governance</h3>
+                            <p class="text-xs text-electricCyan font-mono font-medium">End-to-End Testing Protocols & RTM Sign-off</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                        Constructing comprehensive User Acceptance Testing (UAT) test plans, managing execution cycles with key business champions, maintaining full Requirements Traceability Matrices (RTM) from discovery to delivery, and facilitating formal executive sign-offs.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- TAB CONTENT 2: Technical & Analytics -->
+            <div id="tab-technical" class="tab-content hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-electricCyan text-2xl font-black mb-2"><i class="fa-solid fa-database"></i> SQL & Data Auditing</div>
+                    <p class="text-xs text-slate-300 font-mono mb-3">Joins, CTEs, Window Functions, Schema Analysis</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Querying relational databases, validating data integrity across staging tables, and diagnosing pipeline discrepancies.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-accentViolet text-2xl font-black mb-2"><i class="fa-brands fa-python"></i> Python Analytics</div>
+                    <p class="text-xs text-slate-300 font-mono mb-3">Pandas, NumPy, Predictive Modeling</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Processing complex datasets, building statistical forecasting models, and automating data cleaning scripts.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-emeraldMetric text-2xl font-black mb-2"><i class="fa-solid fa-network-wired"></i> REST APIs & Middleware</div>
+                    <p class="text-xs text-slate-300 font-mono mb-3">JSON, Postman, Endpoint Specs</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Analyzing API payloads, defining request/response specifications, and troubleshooting integration points.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-amber-400 text-2xl font-black mb-2"><i class="fa-solid fa-cubes"></i> SAP ABAP Concepts</div>
+                    <p class="text-xs text-slate-300 font-mono mb-3">ERP Structures, Module Mapping</p>
+                    <p class="text-xs text-slate-400 leading-relaxed">Understanding enterprise ERP data structures, table relationships, and integration workflows with SAP environments.</p>
+                </div>
+
+            </div>
+
+            <!-- TAB CONTENT 3: Systems & Tools -->
+            <div id="tab-tools" class="tab-content hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <i class="fa-solid fa-chart-column text-3xl text-electricCyan mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">Power BI</h4>
+                    <span class="text-[10px] text-slate-400">DAX & Dashboards</span>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <i class="fa-solid fa-chart-line text-3xl text-accentViolet mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">Tableau</h4>
+                    <span class="text-[10px] text-slate-400">Visual Analytics</span>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <i class="fa-solid fa-file-excel text-3xl text-emeraldMetric mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">Advanced Excel</h4>
+                    <span class="text-[10px] text-slate-400">VBA & Power Query</span>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <i class="fa-brands fa-jira text-3xl text-sky-400 mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">JIRA</h4>
+                    <span class="text-[10px] text-slate-400">Agile Backlog</span>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <i class="fa-brands fa-confluence text-3xl text-indigo-400 mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">Confluence</h4>
+                    <span class="text-[10px] text-slate-400">Documentation</span>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl border border-slate-800 text-center">
+                    <i class="fa-solid fa-diagram-project text-3xl text-purple-400 mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">Lucidchart</h4>
+                    <span class="text-[10px] text-slate-400">BPMN Diagrams</span>
+                </div>
+
+            </div>
+
+            <!-- TAB CONTENT 4: Soft Skills -->
+            <div id="tab-soft" class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <h4 class="text-base font-bold text-white mb-2"><i class="fa-solid fa-comments text-electricCyan mr-2"></i> Executive Communication</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Translating highly complex technical architecture into plain-language business insights for non-technical leadership.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <h4 class="text-base font-bold text-white mb-2"><i class="fa-solid fa-handshake text-accentViolet mr-2"></i> Conflict Resolution & Negotiations</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Aligning conflicting priorities across competing departments to arrive at mutually beneficial software feature backlogs.</p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <h4 class="text-base font-bold text-white mb-2"><i class="fa-solid fa-lightbulb text-amber-400 mr-2"></i> Design Thinking</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Applying human-centered design principles to build intuitive system workflows that boost end-user adoption rates.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-darkCard/40 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Chapter 03</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Experience Storyline</h2>
+                <p class="text-slate-400 text-sm mt-2">3 Business Analyst internships delivering impact across enterprise environments.</p>
+            </div>
+
+            <div class="space-y-8 relative chapter-line">
+
+                <!-- Internship 1 -->
+                <div class="relative pl-12 sm:pl-16">
+                    <div class="absolute left-0 top-1 w-10 h-10 rounded-xl bg-electricCyan text-slate-950 font-black text-sm flex items-center justify-center shadow-lg shadow-electricCyan/30">
+                        01
+                    </div>
+                    <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="text-xs font-mono font-bold text-electricCyan uppercase tracking-wider">April 2026 – June 2026</span>
+                            <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300"><i class="fa-solid fa-location-dot mr-1"></i> Chennai, Tamil Nadu</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">RheinBrücke IT Consulting Private Limited</h3>
+                        <p class="text-xs font-mono text-accentViolet font-semibold mb-4">Business Analyst Intern</p>
+                        <ul class="text-xs text-slate-300 space-y-2.5 list-disc list-inside font-light">
+                            <li>Authored complete BRD, FRD, and SRS packages for enterprise client migration projects, ensuring 100% requirements traceability across developer handoffs.</li>
+                            <li>Engineered complex SQL validation scripts to audit data pipeline feeds, identifying and resolving 98.5% of schema discrepancies prior to UAT deployment.</li>
+                            <li>Mapped end-to-end AS-IS and TO-BE process flows using BPMN 2.0 notation for SAP ERP integrations, facilitating cross-departmental alignment.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Internship 2 -->
+                <div class="relative pl-12 sm:pl-16">
+                    <div class="absolute left-0 top-1 w-10 h-10 rounded-xl bg-accentViolet text-white font-black text-sm flex items-center justify-center shadow-lg shadow-accentViolet/30">
+                        02
+                    </div>
+                    <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="text-xs font-mono font-bold text-accentViolet uppercase tracking-wider">June 2026 – August 2026</span>
+                            <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300"><i class="fa-solid fa-location-dot mr-1"></i> Salem, Tamil Nadu</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Apex Technologies</h3>
+                        <p class="text-xs font-mono text-electricCyan font-semibold mb-4">Business Analyst Intern</p>
+                        <ul class="text-xs text-slate-300 space-y-2.5 list-disc list-inside font-light">
+                            <li>Led gap analysis and process re-engineering initiatives for client retail systems, eliminating repetitive manual order processing tasks.</li>
+                            <li>Constructed automated Power BI executive reporting dashboards connected to REST API data streams for real-time operational visibility.</li>
+                            <li>Facilitated Agile sprint refinement meetings, managed user story backlogs in JIRA, and coordinated User Acceptance Testing (UAT) sessions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Internship 3 -->
+                <div class="relative pl-12 sm:pl-16">
+                    <div class="absolute left-0 top-1 w-10 h-10 rounded-xl bg-emeraldMetric text-slate-950 font-black text-sm flex items-center justify-center shadow-lg shadow-emeraldMetric/30">
+                        03
+                    </div>
+                    <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="text-xs font-mono font-bold text-emeraldMetric uppercase tracking-wider">June 2025 – September 2025</span>
+                            <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300"><i class="fa-solid fa-location-dot mr-1"></i> Mangaluru, Karnataka</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Zephyr Technologies & Solutions Private Limited</h3>
+                        <p class="text-xs font-mono text-accentViolet font-semibold mb-4">Business Analyst Intern</p>
+                        <ul class="text-xs text-slate-300 space-y-2.5 list-disc list-inside font-light">
+                            <li>Utilized Python and Advanced Excel to analyze financial datasets, discovering actionable cost-reduction opportunities for SaaS product lines.</li>
+                            <li>Designed wireframes and interactive prototypes for application features using Figma, improving stakeholder validation speed during discovery.</li>
+                            <li>Conducted root-cause analysis on system user drop-off points, proposing UI/UX workflow adjustments that increased user feature adoption by 28%.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies" class="py-20 lg:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Chapter 04</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">12 Industry Case Studies</h2>
+                    <p class="text-slate-400 text-sm mt-2 max-w-2xl">
+                        A collection of 12 sector-specific case studies formatted with tools, problems, methodologies, solutions, and quantifiable outputs.
+                    </p>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full lg:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="caseSearch" placeholder="Search tech, domain, or key..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-electricCyan transition-colors">
+                </div>
+            </div>
+
+            <!-- Domain Pills Filter -->
+            <div class="flex flex-wrap gap-2 mb-8" id="caseFilterPills">
+                <button data-sector="all" class="sector-pill active px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-electricCyan text-slate-950 transition-all">All 12 Sectors</button>
+                <button data-sector="Supply Chain" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Supply Chain</button>
+                <button data-sector="Finance" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Finance</button>
+                <button data-sector="E-Commerce" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">E-Commerce</button>
+                <button data-sector="Enterprise Tech" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Enterprise Tech</button>
+                <button data-sector="Healthcare" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Healthcare</button>
+                <button data-sector="Telecom" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Telecom</button>
+                <button data-sector="Energy" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Energy</button>
+                <button data-sector="Automotive" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Automotive</button>
+                <button data-sector="Real Estate" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Real Estate</button>
+                <button data-sector="Media" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Media</button>
+                <button data-sector="Education" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Education</button>
+                <button data-sector="Hospitality" class="sector-pill px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all">Hospitality</button>
+            </div>
+
+            <!-- Case Studies Grid -->
+            <div id="caseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Case studies injected dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-darkCard/40 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Chapter 05</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Leadership & Governance</h2>
+                <p class="text-slate-400 text-sm mt-2">Demonstrated institutional leadership and cross-functional management.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Role 1 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 flex gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-electricCyan/10 text-electricCyan flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-mono text-electricCyan uppercase tracking-wider font-semibold">Institutional Leadership</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Chairman — ASTROZ Student Association</h3>
+                        <p class="text-xs text-slate-400 mt-1 mb-3">AI & Data Science Department</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-light">
+                            Directing technical symposiums, managing committee budgets, leading agile execution teams of 40+ members, and organizing industry guest speaker panels.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 flex gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-accentViolet/10 text-accentViolet flex items-center justify-center text-2xl shrink-0">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-mono text-accentViolet uppercase tracking-wider font-semibold">National Event Management</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Overall Coordinator — COGNISTA 2025</h3>
+                        <p class="text-xs text-slate-400 mt-1 mb-3">National Level Technical Symposium</p>
+                        <p class="text-xs text-slate-300 leading-relaxed font-light">
+                            Supervised end-to-end logistics, schedule synchronization, vendor relations, and competition workflows for 1,200+ inter-collegiate delegates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="credentials" class="py-20 lg:py-28 relative">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Chapter 06</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Education, Certifications & Awards</h2>
+                <p class="text-slate-400 text-sm mt-2">Verified academic honors and professional certifications.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Education Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap text-electricCyan"></i> Academic Foundation
+                    </h3>
+
+                    <!-- Degree -->
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 relative">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <span class="text-xs font-mono text-electricCyan font-bold">Graduated: June 2026</span>
+                                <h4 class="text-lg font-bold text-white mt-1">B.Tech in Artificial Intelligence and Data Science</h4>
+                                <p class="text-xs text-slate-300 mt-0.5">Dhirajlal Gandhi College of Technology, Salem</p>
+                            </div>
+                            <span class="px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full text-[11px] font-bold shrink-0">
+                                <i class="fa-solid fa-trophy mr-1"></i> Best Outgoing Student (2026)
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-4 leading-relaxed font-light">
+                            Recognized with the "Best Outgoing Student (2026)" title for academic excellence, leadership in institutional governance, and technical research contributions.
+                        </p>
+                    </div>
+
+                    <!-- IIT Guwahati -->
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                        <span class="text-xs font-mono text-accentViolet font-bold">March 2025 – July 2026</span>
+                        <h4 class="text-lg font-bold text-white mt-1">Advanced Credit Program in AI and Machine Learning</h4>
+                        <p class="text-xs text-slate-300 mt-0.5">Indian Institute of Technology (IIT) Guwahati</p>
+                        <p class="text-xs text-slate-400 mt-3 leading-relaxed font-light">
+                            Advanced coursework focusing on machine learning algorithms, statistical data modeling, enterprise data pipelines, and predictive analytics applications.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications & Awards Column -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-award text-accentViolet"></i> Certifications & Hackathons
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="glass-card p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-certificate text-electricCyan text-lg mb-2"></i>
+                            <h5 class="text-xs font-bold text-white">Master in Business Analysis</h5>
+                            <p class="text-[11px] text-slate-400 mt-0.5">MTF Institute of Management & Tech</p>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-chart-pie text-accentViolet text-lg mb-2"></i>
+                            <h5 class="text-xs font-bold text-white">Master in Data Analysis</h5>
+                            <p class="text-[11px] text-slate-400 mt-0.5">MTF Institute of Management & Tech</p>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-diagram-predecessor text-emeraldMetric text-lg mb-2"></i>
+                            <h5 class="text-xs font-bold text-white">Agile, Scrum & Kanban</h5>
+                            <p class="text-[11px] text-slate-400 mt-0.5">Project Management Frameworks</p>
+                        </div>
+
+                        <div class="glass-card p-4 rounded-xl border border-slate-800">
+                            <i class="fa-solid fa-lightbulb text-amber-400 text-lg mb-2"></i>
+                            <h5 class="text-xs font-bold text-white">Design Thinking</h5>
+                            <p class="text-[11px] text-slate-400 mt-0.5">Human-Centered System Design</p>
+                        </div>
+                    </div>
+
+                    <!-- PHR Banner -->
+                    <div class="p-4 rounded-xl glass-card border border-slate-800 flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg shrink-0">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-bold text-white">Certified Professional in HR (PHR Aligned)</h5>
+                            <p class="text-[11px] text-slate-400">HRCI — Stakeholder & Organizational Management Alignment</p>
+                        </div>
+                    </div>
+
+                    <!-- Awards Banner -->
+                    <div class="p-5 rounded-xl bg-gradient-to-r from-electricCyan/10 to-accentViolet/10 border border-electricCyan/30 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-electricCyan"><i class="fa-solid fa-trophy mr-1"></i> 1st Place Winner</span>
+                            <span class="text-[10px] font-mono text-slate-400">Nov 2025</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-white">National AI Innovation Challenge</h5>
+                        <div class="border-t border-slate-800 pt-3 flex items-center justify-between">
+                            <span class="text-xs font-bold text-accentViolet"><i class="fa-solid fa-award mr-1"></i> 1st Place Winner</span>
+                            <span class="text-[10px] font-mono text-slate-400">Oct 2025</span>
+                        </div>
+                        <h5 class="text-sm font-bold text-white">ASTOR Hacks National Tech Award</h5>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-xs font-mono font-bold uppercase tracking-widest text-electricCyan">Get In Touch</span>
+                        <h2 class="text-3xl font-extrabold text-white mt-2">Let's Connect</h2>
+                        <p class="text-slate-400 text-sm mt-2">
+                            I am actively seeking Junior Business Analyst roles. Reach out via email, phone, or LinkedIn.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl glass-card border border-slate-800 flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-electricCyan/10 text-electricCyan flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Email Address</span>
+                                <button onclick="copyToClipboard('syedmannu2003@gmail.com', 'Email address copied!')" class="text-xs font-bold text-white hover:text-electricCyan transition-colors">
+                                    syedmannu2003@gmail.com <i class="fa-solid fa-copy ml-1 text-[10px]"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl glass-card border border-slate-800 flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-accentViolet/10 text-accentViolet flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Phone Contact</span>
+                                <a href="tel:+917397762195" class="text-xs font-bold text-white hover:text-electricCyan transition-colors">+91 7397762195</a>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl glass-card border border-slate-800 flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-emeraldMetric/10 text-emeraldMetric flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Location</span>
+                                <span class="text-xs font-bold text-white">Salem, Tamil Nadu, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Your Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-electricCyan">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Your Email</label>
+                                <input type="email" required placeholder="john@company.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-electricCyan">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Subject</label>
+                            <input type="text" required placeholder="Junior BA Opportunity / Inquiry" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-electricCyan">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Type your message here..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-electricCyan"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-electricCyan to-accentViolet text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-lg shadow-electricCyan/20">
+                            Send Message <i class="fa-solid fa-paper-plane ml-1"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="font-bold text-white">Salma S</span> — Junior Business Analyst Portfolio
+            </div>
+            <div>
+                © 2026 Salma S. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Toast Message Container -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-electricCyan text-slate-950 font-bold px-4 py-3 rounded-xl shadow-2xl text-xs flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Action completed!</span>
+    </div>
+
+    <!-- Case Study Inspection Modal -->
+    <div id="caseModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto custom-scrollbar p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeModal('caseModal')" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="modalCaseContent">
+                <!-- Injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Viewer Modal -->
+    <div id="resumeModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto custom-scrollbar p-6 sm:p-8 relative shadow-2xl space-y-6">
+            <button onclick="closeModal('resumeModal')" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="border-b border-slate-800 pb-4">
+                <h3 class="text-xl font-bold text-white">Salma S — Curriculum Vitae</h3>
+                <p class="text-xs text-electricCyan font-mono">Junior Business Analyst • Salem, TN • syedmannu2003@gmail.com</p>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-300 font-light leading-relaxed">
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-1 uppercase tracking-wider">Executive Summary</h4>
+                    <p>Junior Business Analyst with B.Tech in AI & Data Science and advanced credit coursework from IIT Guwahati. Experienced across 3 BA internships, specializing in BRD/FRD authoring, process re-engineering (BPMN 2.0), SQL data auditing, and REST API specification design.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-1 uppercase tracking-wider">Education & Honors</h4>
+                    <p>• B.Tech AI & Data Science — Dhirajlal Gandhi College of Technology (Graduated: June 2026) — <strong>Best Outgoing Student '26</strong></p>
+                    <p>• Advanced Program in AI & ML — IIT Guwahati (2025–2026)</p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-1 uppercase tracking-wider">Internships Delivered</h4>
+                    <p>• <strong>RheinBrücke IT Consulting</strong> (April 2026 – June 2026) — Business Analyst Intern</p>
+                    <p>• <strong>Apex Technologies</strong> (June 2026 – August 2026) — Business Analyst Intern</p>
+                    <p>• <strong>Zephyr Technologies</strong> (June 2025 – September 2025) — Business Analyst Intern</p>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex gap-4">
+                <button onclick="copyToClipboard('https://linkedin.com/in/salma-s-206671203/', 'LinkedIn profile link copied!')" class="w-full py-3 rounded-xl bg-electricCyan text-slate-950 font-bold text-xs uppercase tracking-wider">
+                    Copy Profile Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 12 Sector-Specific Case Studies with 5-Bullet Structured Format
+        const caseStudies = [
+            {
+                id: 1,
+                sector: "Supply Chain",
+                title: "Demand Forecasting & Inventory Optimization Engine",
+                icon: "fa-boxes-packing",
+                tools: "Python (Pandas, Scikit-learn), SQL (PostgreSQL), Tableau, REST APIs, BRD/FRD",
+                problem: "Global logistics hub faced a 24% stockout rate during demand spikes and $620K in carrying cost losses.",
+                methodologies: "Value Stream Mapping (VSM), Gap Analysis, Time-Series Forecasting, Agile Backlog Refinement",
+                solution: "Engineered automated SQL replenishment triggers and predictive inventory models in Python; designed Tableau control tower.",
+                output: "Reduced stockout frequency by 38%; cut annual excess inventory holding costs by $410K."
+            },
+            {
+                id: 2,
+                sector: "Finance",
+                title: "Real-Time Payment Fraud Detection & Compliance Platform",
+                icon: "fa-shield-halved",
+                tools: "SQL (Window Functions), REST APIs, Python, Power BI, SRS / Compliance Protocols",
+                problem: "Fintech payment gateway suffered a 3.8% reconciliation lag and high false-positive fraud flags costing $450K annually.",
+                methodologies: "Root Cause Analysis (5 Whys), AS-IS vs. TO-BE Modeling, Rule Engine Specification",
+                solution: "Designed automated SQL reconciliation rules integrated via REST API webhooks with dynamic risk scoring.",
+                output: "Compressed payment reconciliation time from 24 hours to 45 seconds; decreased false-positive flags by 64%."
+            },
+            {
+                id: 3,
+                sector: "E-Commerce",
+                title: "Omni-Channel Customer Churn Analytics & Returns Sync",
+                icon: "fa-cart-shopping",
+                tools: "SQL, Power BI, Advanced Excel, JIRA, BPMN 2.0 Process Diagrams",
+                problem: "E-commerce retailer experienced a 12-day inventory re-stock delay on returned merchandise, eroding margins.",
+                methodologies: "Business Process Re-engineering (BPR), Stakeholder RACI Matrix, User Acceptance Testing (UAT)",
+                solution: "Authored FRD for automated storefront return processing with instant online stock sync via microservice APIs.",
+                output: "Compressed return-to-shelf lead time from 12 days to 18 hours; recovered $850K in seasonal inventory write-offs."
+            },
+            {
+                id: 4,
+                sector: "Enterprise Tech",
+                title: "Cloud ERP Migration & Data Schema Integration",
+                icon: "fa-cloud-arrow-up",
+                tools: "SAP ABAP Concepts, SQL, JIRA, Confluence, REST APIs, Traceability Matrix (RTM)",
+                problem: "Legacy ERP migration caused 15% schema validation failures and delayed multi-subsidiary financial consolidation.",
+                methodologies: "Requirements Engineering (BRD/FRD/SRS), Feasibility Assessment, Data Dictionary Standardization",
+                solution: "Formulated comprehensive data mapping specifications between legacy endpoints and cloud ERP tables.",
+                output: "Achieved 100% requirements traceability; eliminated schema validation failures prior to production launch."
+            },
+            {
+                id: 5,
+                sector: "Healthcare",
+                title: "Patient Flow & EHR Clinical Resource Optimization",
+                icon: "fa-hospital-user",
+                tools: "SQL, Advanced Excel, Figma, HL7/FHIR APIs, Process Mapping",
+                problem: "Hospital network suffered a 28% claims rejection rate and prolonged patient emergency room wait times.",
+                methodologies: "AS-IS / TO-BE Workflow Analysis, UAT Protocol Governance, Root Cause Analysis",
+                solution: "Designed standardized data mapping dictionary between EHR patient charts and insurance billing systems.",
+                output: "Slashed claim rejection rate from 28% to 4.2%; reduced average emergency room patient wait times by 31 minutes."
+            },
+            {
+                id: 6,
+                sector: "Telecom",
+                title: "Subscriber Churn Mitigation & Bandwidth Allocation",
+                icon: "fa-tower-cell",
+                tools: "Python, SQL, Tableau, REST APIs, Stakeholder Discovery",
+                problem: "Postpaid telecom provider experienced a 4.5% monthly subscriber churn without early indicator visibility.",
+                methodologies: "Predictive Analytics, Customer Journey Mapping, Cost-Benefit Analysis",
+                solution: "Built dynamic churn risk scoring models in Python and integrated automated retention offer triggers into CRM.",
+                output: "Identified high-risk churners with 87% accuracy; increased quarterly subscriber retention by 19%."
+            },
+            {
+                id: 7,
+                sector: "Energy",
+                title: "Smart Grid Predictive Maintenance & Telemetry Monitoring",
+                icon: "fa-bolt",
+                tools: "SQL, Python, Power BI, SAP ABAP Concepts, Risk Assessment Framework",
+                problem: "Power utility faced unexpected transformer failures leading to costly outage penalties and delayed repairs.",
+                methodologies: "Risk Mitigation, Telemetry Data Auditing, Maintenance Workflow Re-engineering",
+                solution: "Designed a Power BI maintenance dashboard triggering automatic SAP work orders upon voltage variance threshold breaches.",
+                output: "Reduced unplanned grid downtime by 34%; saved $640K in emergency repair overhead."
+            },
+            {
+                id: 8,
+                sector: "Automotive",
+                title: "Defect Detection & Manufacturing Quality Control Analytics",
+                icon: "fa-industry",
+                tools: "Python, SQL, Tableau, SAP ABAP Concepts, 5 Whys RCA",
+                problem: "Automotive parts plant suffered a 6.2% component defect rate due to undetected machine calibration drift.",
+                methodologies: "Overall Equipment Effectiveness (OEE) Analysis, Quality Compliance Auditing, BPR",
+                solution: "Constructed real-time OEE telemetry alerts integrated directly into shop-floor production schedules.",
+                output: "Decreased scrap defect rate from 6.2% to 1.8%; improved overall factory throughput by 15%."
+            },
+            {
+                id: 9,
+                sector: "Real Estate",
+                title: "Algorithmic Valuation & Asset Yield Portfolio Optimization",
+                icon: "fa-building-user",
+                tools: "Advanced Excel (VBA), SQL, Power BI, NPV Modeling, SRS",
+                problem: "Property investment group manually evaluated commercial lease contracts, delaying acquisition deals by weeks.",
+                methodologies: "Financial & Cost-Benefit Modeling (NPV/ROI), Automated Document Parsing Specs",
+                solution: "Built a consolidated Power BI asset portal integrating discounted cash flow models directly from lease databases.",
+                output: "Accelerated acquisition evaluation speed by 75%; uncovered $1.4M in under-billed lease escalation clauses."
+            },
+            {
+                id: 10,
+                sector: "Media",
+                title: "Subscriber Lifetime Value & Content Engagement Engine",
+                icon: "fa-tv",
+                tools: "SQL, Python, Tableau, REST APIs, User Personas",
+                problem: "Digital streaming platform saw a 68% drop-off rate between free trial onboarding and paid tier conversion.",
+                methodologies: "User Funnel Analysis, Agile Sprint Backlog Prioritization, A/B Test Frameworks",
+                solution: "Redesigned onboarding user journeys and established automated engagement pushes triggered via webhooks.",
+                output: "Increased paid trial conversion rate by 28%; raised platform 90-day retention yield by 18%."
+            },
+            {
+                id: 11,
+                sector: "Education",
+                title: "Student Retention & Learning Analytics Platform",
+                icon: "fa-graduation-cap",
+                tools: "SQL, Python, Power BI, JIRA, User Journey Mapping",
+                problem: "EdTech platform experienced high student drop-outs mid-course without proactive academic intervention.",
+                methodologies: "Capability Mapping, Stakeholder Alignment Workshops, RCA",
+                solution: "Modeled learning velocity indicators using SQL and designed automated advisor alert triggers in Power BI.",
+                output: "Increased course completion rates by 38%; improved student platform satisfaction scores by 22%."
+            },
+            {
+                id: 12,
+                sector: "Hospitality",
+                title: "Dynamic Pricing & Hotel Inventory Yield Manager",
+                icon: "fa-hotel",
+                tools: "SQL, Python, Advanced Excel, REST APIs, BRD/FRD",
+                problem: "Boutique hotel chain lost revenue during seasonal demand shifts due to static room pricing rules.",
+                methodologies: "Feasibility Analysis, Revenue Yield Management, Agile User Stories",
+                solution: "Authored FRD for an automated dynamic pricing microservice that adjusts rates based on local market occupancy.",
+                output: "Increased RevPAR (Revenue Per Available Room) by 23%; boosted overall annual profit margins by 14%."
+            }
+        ];
+
+        // Render Case Studies Cards
+        function renderCaseStudies(items) {
+            const grid = document.getElementById('caseGrid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500">No case studies found matching your query.</div>`;
+                return;
+            }
+
+            items.forEach(c => {
+                const card = document.createElement('div');
+                card.className = "glass-card p-6 rounded-2xl border border-slate-800 flex flex-col justify-between group cursor-pointer transition-all";
+                card.onclick = () => openCaseModal(c.id);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3">
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-slate-800 text-electricCyan border border-slate-700">
+                                <i class="fa-solid ${c.icon} mr-1"></i> ${c.sector}
+                            </span>
+                            <span class="text-xs text-slate-500 group-hover:text-electricCyan transition-colors">Inspect <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></span>
+                        </div>
+                        
+                        <h3 class="text-base font-bold text-white mb-3 group-hover:text-electricCyan transition-colors leading-snug">${c.title}</h3>
+                        
+                        <div class="space-y-2 text-xs text-slate-300 font-light mb-4">
+                            <p><strong class="text-slate-400 font-semibold">Problem:</strong> ${c.problem}</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-800 text-xs">
+                        <span class="text-[10px] uppercase tracking-wider font-mono text-emeraldMetric font-bold block mb-0.5">Quantifiable Output</span>
+                        <p class="font-semibold text-white truncate">${c.output}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Open Modal Details for Case Study
+        function openCaseModal(id) {
+            const c = caseStudies.find(item => item.id === id);
+            if (!c) return;
+
+            const modalContent = document.getElementById('modalCaseContent');
+            modalContent.innerHTML = `
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-800 text-electricCyan border border-slate-700">
+                        <i class="fa-solid ${c.icon} mr-1.5"></i> ${c.sector} Sector
+                    </span>
+                    <span class="text-xs text-slate-500">Case Study #${c.id}</span>
+                </div>
+
+                <h2 class="text-2xl font-bold text-white mb-6">${c.title}</h2>
+
+                <div class="space-y-4 text-xs">
+                    <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <h4 class="text-xs font-bold text-electricCyan uppercase tracking-wider mb-1"><i class="fa-solid fa-wrench mr-1.5"></i> 1. Tools & Tech</h4>
+                        <p class="text-slate-200 font-mono">${c.tools}</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <h4 class="text-xs font-bold text-rose-400 uppercase tracking-wider mb-1"><i class="fa-solid fa-triangle-exclamation mr-1.5"></i> 2. Problem Statement</h4>
+                        <p class="text-slate-300 font-light leading-relaxed">${c.problem}</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <h4 class="text-xs font-bold text-accentViolet uppercase tracking-wider mb-1"><i class="fa-solid fa-brain mr-1.5"></i> 3. Methodologies</h4>
+                        <p class="text-slate-300 font-light leading-relaxed">${c.methodologies}</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800">
+                        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider mb-1"><i class="fa-solid fa-gears mr-1.5"></i> 4. Solution Engineered</h4>
+                        <p class="text-slate-300 font-light leading-relaxed">${c.solution}</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-gradient-to-r from-electricCyan/20 to-emeraldMetric/20 border border-emeraldMetric/40">
+                        <h4 class="text-xs font-bold text-emeraldMetric uppercase tracking-wider mb-1"><i class="fa-solid fa-chart-line mr-1.5"></i> 5. Quantifiable Output</h4>
+                        <p class="text-sm font-bold text-white leading-relaxed">${c.output}</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('caseModal').classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        function openResumeModal() {
+            document.getElementById('resumeModal').classList.remove('hidden');
+        }
+
+        // Copy to Clipboard Utility
+        function copyToClipboard(text, message) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        // Contact Form Handling
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            copyToClipboard('syedmannu2003@gmail.com', 'Message sent! Email copied for reference.');
+            e.target.reset();
+        }
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCaseStudies(caseStudies);
+
+            // Skill Tab Switching
+            const tabBtns = document.querySelectorAll('#skillTabs .tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('bg-electricCyan', 'text-slate-950', 'active'));
+                    btn.classList.add('bg-electricCyan', 'text-slate-950', 'active');
+
+                    const tabId = btn.getAttribute('data-tab');
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+                    document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+                });
+            });
+
+            // Sector Pill Filtering
+            const sectorPills = document.querySelectorAll('#caseFilterPills .sector-pill');
+            sectorPills.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sectorPills.forEach(p => p.classList.remove('bg-electricCyan', 'text-slate-950', 'active'));
+                    btn.classList.add('bg-electricCyan', 'text-slate-950', 'active');
+
+                    const sector = btn.getAttribute('data-sector');
+                    if (sector === 'all') {
+                        renderCaseStudies(caseStudies);
+                    } else {
+                        const filtered = caseStudies.filter(c => c.sector === sector);
+                        renderCaseStudies(filtered);
+                    }
+                });
+            });
+
+            // Search Bar Filter
+            document.getElementById('caseSearch').addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const filtered = caseStudies.filter(c => 
+                    c.title.toLowerCase().includes(term) || 
+                    c.sector.toLowerCase().includes(term) ||
+                    c.problem.toLowerCase().includes(term) ||
+                    c.tools.toLowerCase().includes(term)
+                );
+                renderCaseStudies(filtered);
+            });
+
+            // Mobile Menu Toggle
+            document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
